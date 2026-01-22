@@ -1,0 +1,2 @@
+ở
+confidence: 1.0

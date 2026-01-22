@@ -1,0 +1,2 @@
+thuân
+confidence: 1.0

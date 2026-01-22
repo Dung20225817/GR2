@@ -1,0 +1,2 @@
+hút lớn
+confidence: 1.0

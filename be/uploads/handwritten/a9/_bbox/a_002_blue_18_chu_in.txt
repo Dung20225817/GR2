@@ -1,0 +1,2 @@
+mới
+confidence: 1.0

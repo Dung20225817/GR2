@@ -1,0 +1,2 @@
+ngan nga
+confidence: 1.0

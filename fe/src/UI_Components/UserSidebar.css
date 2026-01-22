@@ -1,0 +1,98 @@
+/* Overlay mờ, fade-in */
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,0.4);
+    display: flex;
+    justify-content: flex-end;
+    align-items: stretch;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 9999;
+}
+
+.sidebar-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Sidebar trượt từ phải sang */
+.sidebar {
+    width: 280px;
+    max-width: 80%;
+    height: 100%;
+    background: #fff;
+    padding: 20px;
+    box-shadow: -6px 0 15px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+}
+
+.sidebar-overlay.active .sidebar {
+    transform: translateX(0);
+}
+
+/* Header */
+.sidebar-header {
+    position: relative; /* để nút X absolute bên trong */
+    text-align: center; /* tiêu đề canh giữa */
+    padding: 20px 0 10px 0; /* padding trên/dưới */
+    border-bottom: 1px solid #eee;
+}
+
+.close-btn {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: #555;
+    transition: color 0.2s;
+}
+
+.close-btn:hover {
+    color: #000;
+}
+
+/* Nội dung sidebar */
+.sidebar-content {
+    margin-top: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: safe;
+    font-size: 14px;
+    color: #333;
+}
+
+/* Nút đăng xuất */
+.signout-btn {
+    margin-top: 20px;
+    padding: 12px 15px;
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.signout-btn:hover {
+    background-color: #c9302c;
+    transform: translateY(-1px);
+}
+ 
+.sidebar-header h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+}

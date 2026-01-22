@@ -1,0 +1,42 @@
+.top-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background-color: white;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+}
+
+.right-menu {
+  display: flex;
+  align-items: center;
+  margin-left: auto; /* đẩy cả nhóm sang phải */
+  gap: 10;            /* nút sát nhau */
+}
+
+.menu-link {
+  font-size: 13px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  margin-left: 10px; /* khoảng cách nhỏ nếu muốn nút cách nhau 10px */
+}
+
+.menu-link:hover {
+  text-decoration: underline;
+}
+
+.user-icon {
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  color: #333;
+  margin-left: 10px; /* cách nút bên trái 10px */
+  flex-shrink: 0;
+  margin-right: 20px;
+}

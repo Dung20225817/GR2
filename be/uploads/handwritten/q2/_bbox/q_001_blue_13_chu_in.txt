@@ -1,0 +1,2 @@
+thu nghi
+confidence: 1.0

@@ -1,0 +1,2 @@
+nhủ nhau
+confidence: 1.0

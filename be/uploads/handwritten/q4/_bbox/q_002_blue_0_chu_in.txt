@@ -1,0 +1,2 @@
+A. stamp
+confidence: 1.0
