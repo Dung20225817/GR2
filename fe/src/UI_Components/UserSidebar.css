@@ -1,17 +1,23 @@
-/* Overlay mờ, fade-in */
+/* ============================================
+   USER SIDEBAR - MODERN SLIDE-IN PANEL
+   ============================================ */
+
+/* Overlay with Blur */
 .sidebar-overlay {
     position: fixed;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    background: rgba(0,0,0,0.4);
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
     display: flex;
     justify-content: flex-end;
     align-items: stretch;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.3s ease;
+    transition: opacity var(--transition-base);
     z-index: 9999;
 }
 
@@ -20,79 +26,138 @@
     pointer-events: auto;
 }
 
-/* Sidebar trượt từ phải sang */
+/* Sidebar Panel */
 .sidebar {
-    width: 280px;
-    max-width: 80%;
+    width: 320px;
+    max-width: 85%;
     height: 100%;
-    background: #fff;
-    padding: 20px;
-    box-shadow: -6px 0 15px rgba(0,0,0,0.2);
+    background: white;
+    padding: var(--spacing-6);
+    box-shadow: -10px 0 40px rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: column;
     transform: translateX(100%);
-    transition: transform 0.3s ease;
+    transition: transform var(--transition-base);
+    position: relative;
 }
 
 .sidebar-overlay.active .sidebar {
     transform: translateX(0);
 }
 
-/* Header */
-.sidebar-header {
-    position: relative; /* để nút X absolute bên trong */
-    text-align: center; /* tiêu đề canh giữa */
-    padding: 20px 0 10px 0; /* padding trên/dưới */
-    border-bottom: 1px solid #eee;
+/* Accent Border */
+.sidebar::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--gradient-primary);
 }
 
+/* Header */
+.sidebar-header {
+    position: relative;
+    text-align: center;
+    padding: var(--spacing-5) 0 var(--spacing-4) 0;
+    border-bottom: 2px solid var(--color-neutral-100);
+}
+
+.sidebar-header h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 800;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Close Button */
 .close-btn {
     position: absolute;
-    top: 0px;
-    left: 0px;
-    background: transparent;
+    top: 0;
+    left: 0;
+    background: var(--color-neutral-100);
     border: none;
     cursor: pointer;
     font-size: 20px;
-    color: #555;
-    transition: color 0.2s;
+    color: var(--color-neutral-600);
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-base);
 }
 
 .close-btn:hover {
-    color: #000;
+    background: var(--color-neutral-200);
+    color: var(--color-neutral-900);
+    transform: rotate(90deg);
 }
 
-/* Nội dung sidebar */
+/* Sidebar Content */
 .sidebar-content {
-    margin-top: 20px;
+    margin-top: var(--spacing-6);
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: safe;
-    font-size: 14px;
-    color: #333;
+    gap: var(--spacing-4);
+    font-size: 0.95rem;
+    color: var(--color-neutral-700);
 }
 
-/* Nút đăng xuất */
+/* User Info Item */
+.sidebar-content>div {
+    padding: var(--spacing-3);
+    background: var(--color-neutral-50);
+    border-radius: var(--radius-md);
+    border-left: 3px solid var(--color-primary-500);
+    transition: all var(--transition-base);
+}
+
+.sidebar-content>div:hover {
+    background: var(--color-primary-50);
+    border-left-color: var(--color-primary-600);
+    transform: translateX(5px);
+}
+
+.sidebar-content strong {
+    color: var(--color-neutral-900);
+    font-weight: 600;
+}
+
+/* Sign Out Button */
 .signout-btn {
-    margin-top: 20px;
-    padding: 12px 15px;
-    background-color: #d9534f;
+    margin-top: auto;
+    padding: var(--spacing-4);
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
     color: white;
     border: none;
-    border-radius: 8px;
+    border-radius: var(--radius-md);
     cursor: pointer;
-    font-weight: 500;
-    transition: background-color 0.2s, transform 0.2s;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: all var(--transition-base);
+    box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
 }
 
 .signout-btn:hover {
-    background-color: #c9302c;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(239, 68, 68, 0.4);
+}
+
+.signout-btn:active {
     transform: translateY(-1px);
 }
- 
-.sidebar-header h3 {
-    margin: 0;
-    font-size: 18px;
-    font-weight: 600;
+
+/* Responsive */
+@media (max-width: 480px) {
+    .sidebar {
+        width: 280px;
+        padding: var(--spacing-5);
+    }
 }
